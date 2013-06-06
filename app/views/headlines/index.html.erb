@@ -1,0 +1,61 @@
+<h1>Headlines</h1>
+
+<%= render 'form' %>
+
+<div id="headlines">
+  <div id="tr">
+    <div id="cnn" class="stories">  </div> <div id="reuters" class="stories"> </div>
+  </div>
+  <div id="tr">
+    <div id="aljazeera" class="stories"></div>
+    <div id="bbc" class="stories"> </div>
+  </div>
+  <div id="tr">
+    <div id="chinadaily" class="stories"></div>
+  </div>
+</div>
+<script>
+$(document).ready(function() {
+agencies = ["cnn", "reuters", "bbc", "chinadaily", "aljazeera"]
+
+for (i = 0; i < 6; i++) {
+    requestNewsStories(agencies[i]);  
+}
+
+
+
+function requestNewsStories(agency) {
+    limit = $("#Limit").val();
+    $.ajax({
+      url: "/",
+      data: { agency: agency, limit: limit },
+      success: function(response) {
+       
+      },
+      error: function (xhr, textStatus) {
+        alert('Server error: ' + textStatus);
+      }
+    }); // End ajax
+}
+}); // End document ready
+
+
+
+
+//   $("#Agency_select, #Limit").on('change', function(){
+//     agency = $("#Agency_select").val();
+//     limit = $("#Limit").val();
+//     $.ajax({
+//       url: "/",
+//       data: { agency: agency, limit: limit },
+//       success: function(response) {
+
+//       },
+//       error: function (xhr, textStatus) {
+//         alert('Server error: ' + textStatus);
+//       }
+//     }); // End ajax
+//   }); // End select on change 
+// }); // End document ready
+
+</script>

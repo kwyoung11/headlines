@@ -1,0 +1,8 @@
+  <div class="field">
+    <%= label :agency, "Agency" %>
+    <%= select "Agency", "select", %w[CNN Reuters Al\ Jazeera BBC China\ Daily] %>
+
+    <%= label :agency, "Limit" %>
+    <%= select_tag "Limit", options_for_select((1..50), selected: "25") %>
+  </div>
+

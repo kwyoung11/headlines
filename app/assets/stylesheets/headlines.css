@@ -1,0 +1,68 @@
+#headlines {
+	border: 1px solid red;
+	margin: 0 auto;
+	width: 800px;
+	display: table;
+}
+
+#agency_banner {
+	border: 1px solid red;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#cnn {
+
+}
+
+#cnn p {
+	border: 1px solid red;
+	color: white;
+	background-color: red;
+}
+
+#aljazeera {
+	border: 1px solid red;
+}
+
+#aljazeera p {
+	color: blue;
+	background-color: white;
+}
+
+#reuters {
+	border: 1px solid red;
+}
+
+#reuters p {
+	background-color: #444;
+	color: white;
+}
+
+#bbc {
+	border: 1px solid red;
+}
+
+#bbc p {
+	color: white;
+	background-color: red;
+}
+
+#chinadaily {
+	border: 1px solid red;
+}
+
+#chinadaily p {
+	color: white;
+	background-color: blue;
+}
+
+.stories {
+	border: 1px solid red;
+	width: 300px;
+	display: table-cell;
+}
+
+#tr {
+	display: table-row;
+}
