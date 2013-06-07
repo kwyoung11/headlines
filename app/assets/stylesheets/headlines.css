@@ -1,68 +1,83 @@
 #headlines {
 	border: 1px solid red;
 	margin: 0 auto;
-	width: 800px;
-	display: table;
+	overflow: hidden;
 }
 
-#agency_banner {
+#breaking {
+	color: red;
+	text-decoration: underline;
+}
+
+.agency {
+	color: red;
+}
+
+#banner {
 	border: 1px solid red;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#banner h1 {
+	font-family: Arial Black;
+	font-size: 28px;
+}
+
+#headlines_container {
+	border: 1px solid blue;
+	max-width: 1530px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.agency_container {
+	float: left;
+	display: block;
+	margin: 0px 10px 10px 0px;
+	background: #fff;
+	width: 400px;
+	color: white;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.agency_container a {
+	color: blue;
+	text-decoration: none;
+}
+
+.agency_container a:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+.agency_container a:visited {
+	color: blue;
+}
+
+.agency_banner {
+	border: 0px solid red;
 	text-align: center;
 	text-transform: uppercase;
 }
 
-#cnn {
-
-}
-
-#cnn p {
-	border: 1px solid red;
+#cnn, #bbc {
 	color: white;
 	background-color: red;
 }
 
 #aljazeera {
-	border: 1px solid red;
-}
-
-#aljazeera p {
 	color: blue;
-	background-color: white;
-}
-
-#reuters {
-	border: 1px solid red;
-}
-
-#reuters p {
-	background-color: #444;
-	color: white;
-}
-
-#bbc {
-	border: 1px solid red;
-}
-
-#bbc p {
-	color: white;
-	background-color: red;
+	background-color: #eee;
 }
 
 #chinadaily {
-	border: 1px solid red;
-}
-
-#chinadaily p {
 	color: white;
-	background-color: blue;
+	background-color: #2323dd;
 }
 
-.stories {
-	border: 1px solid red;
-	width: 300px;
-	display: table-cell;
-}
-
-#tr {
-	display: table-row;
+#reuters {
+	color: white;
+	background-color: #444;
 }

@@ -1,9 +1,15 @@
-<table>
-  <tbody>
-    <% @headlines.each do |headline| %>
-    <tr>
-      <td><%= headline %> </td>
-    </tr>
+
+ 
+  <div id="headlines_container">
+    <% @agencies.each do |agency| %>
+      <div class="agency_container">
+        <h3 id="<%= agency %>" class="agency_banner"> <%= agency %> </h3>
+        <div id="links">
+        <% @headlines[agency][:text].each_with_index do |story, i| %>
+            <% url = "#{@headlines[agency][:uri]}".split('news').first + "#{@headlines[agency][:href][i]}".gsub(/\A\/{1}/, '') %>
+            <%= link_to "#{story}", url.split('http').last.insert(0, 'http') %> <br/>
+        <% end %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>

@@ -3,10 +3,11 @@ class HeadlinesController < ApplicationController
   # GET /headlines
   # GET /headlines.json
   def index
-    agency = !params[:agency].nil? ? params.symbolize_keys[:agency].downcase.gsub(' ', '').to_sym : :cnn
+    agencies = [:cnn, :reuters, :aljazeera, :bbc, :chinadaily]
+    # agency = !params[:agency].nil? ? params.symbolize_keys[:agency].downcase.gsub(' ', '').to_sym : :cnn
     num_stories = !params[:limit].nil? ? params[:limit].to_i : 25
-    @headlines = Headline.scrape(agency, num_stories, Headline.scraper_options)
-    @agency = !params[:agency].nil? ? params.symbolize_keys[:agency].downcase.gsub(' ', '').to_sym : :cnn
+    @headlines = Headline.scrape(agencies, num_stories, Headline.scraper_options)
+    @agencies = agencies
 
     respond_to do |format|
       format.js
