@@ -1,7 +1,11 @@
 #headlines {
-	border: 1px solid red;
+	border: 0px solid red;
 	margin: 0 auto;
 	overflow: hidden;
+}
+
+#center {
+	border: 0px solid red;
 }
 
 #breaking {
@@ -14,7 +18,7 @@
 }
 
 #banner {
-	border: 1px solid red;
+	border: 0px solid red;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -25,8 +29,8 @@
 }
 
 #headlines_container {
-	border: 1px solid blue;
-	max-width: 1530px;
+	border: 0px solid blue;
+	max-width: 1291px;
 	margin: 0 auto;
 	overflow: hidden;
 }

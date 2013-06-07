@@ -6,7 +6,7 @@
         $("span.agency").html(agencies[i])
         if (++i == agencies.length)
           i = 0;
-      }, 1300);
+      }, 1400);
     });
 
     

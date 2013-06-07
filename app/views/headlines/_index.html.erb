@@ -1,6 +1,7 @@
 
- 
+<div id="center">
   <div id="headlines_container">
+   
     <% @agencies.each do |agency| %>
       <div class="agency_container">
         <h3 id="<%= agency %>" class="agency_banner"> <%= agency %> </h3>
@@ -11,5 +12,7 @@
         <% end %>
         </div>
       </div>
+  
     <% end %>
   </div>
+</div>
