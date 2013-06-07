@@ -38,7 +38,7 @@ class Headline < ActiveRecord::Base
   			:cnn => ".cnn_banner_standard h1 a, .cnn_banner_large h1 a", :reuters => ".topStory h2 a", :chinadaily => ".font28 a", :bbc => ".top-story-header a", :aljazeera => "#ctl00_cphBody_ctl00_rptNews_ctl00_lnkTitle"
   		}, 
   		:other_stories => {
-  			:cnn => ".cnn_bulletbin li", :reuters => "h2 + h2, h2 ~ h2, h2:not(:first-child)", :chinadaily => "#main2 li, .headline-box h2, :nth-child(3) .wid300 h3", :bbc => "#top-story li, #second-story h2, #second_story li, 
+  			:cnn => ".cnn_bulletbin li", :reuters => "h2 + h2, h2 ~ h2, h2:not(:first-child), h2", :chinadaily => "#main2 li, .headline-box h2, :nth-child(3) .wid300 h3", :bbc => "#top-story li, #second-story h2, #second_story li, 
 				.secondary-story-header, #third-story li, #other-top-stories h3", :aljazeera => ".indexText-Font2 h2, .h89-fix td div:first-child, .rightNewsArea, #ctl00_cphBody_ctl02_ctl01_DataList1_ctl00_Thumbnail1_Layout14 > div:nth-child(2), 
 				#ctl00_cphBody_ctl02_ctl01_DataList1_ctl01_Thumbnail1_Layout14 > div:nth-child(2), #ctl00_cphBody_ctl02_ctl01_DataList1_ctl02_Thumbnail1_Layout14 > div:nth-child(2), #ctl00_cphBody_ctl02_ctl01_DataList1_ctl03_Thumbnail1_Layout14 > div:nth-child(2), #ctl00_cphBody_ctl03_rptPosting_ctl01_Thumbnail1_Layout9 > div:nth-child(2), 
 				#ctl00_cphBody_ctl03_rptPosting_ctl02_Thumbnail1_Layout9 > div:nth-child(2), #ctl00_cphBody_ctl03_rptPosting_ctl03_Thumbnail1_Layout9 > div:nth-child(2), .skyscLines, .skyscBullet, #ctl00_cphBody_ctl05_ctl01_DataList1_ctl00_Thumbnail1_Layout14 div , #ctl00_ctl00_MostViewedArticles1_dvMVAlayout1 :nth-child(10)"
