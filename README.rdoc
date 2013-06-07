@@ -1,28 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app aggregates top news headlines from various news outlets, including outlets in the America's, 
+Europe, Asia and the Middle East.
 
-Things you may want to cover:
+If you would like to add news sources, fork the repo, commit your changes, and send a pull request!
 
-* Ruby version
+Cheers,
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Kevin
