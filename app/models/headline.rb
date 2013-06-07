@@ -12,7 +12,8 @@ class Headline < ActiveRecord::Base
     agencies.size.times do |i| 
 		  url, headline, other_stories = scraper_options[:base_urls][agencies[i]], scraper_options[:headlines][agencies[i]], scraper_options[:other_stories][agencies[i]]
       text, href, doc = [], [], Nokogiri::HTML(open(url))
-  	  text << doc.at_css(headline).text  # Appending individual headline to stories_arr[]
+  	  text << doc.at_css(headline).text  unless doc.at_css(headline).nil? # Appending top headline
+      href << doc.at_css(headline)[:href] unless doc.at_css(headline).nil? # Append href attribute of top headline
   	  doc.css(other_stories).each_with_index do |link, j|  # Iterate over other news agency stories with an index
   		  j >= limit ? break : j += 1	# Break iteration when @param limit is reached
   		  text << "#{j}. " + link.at_css("a").text unless link.at_css("a").nil? # Push link text, href attribute and base url onto stories
@@ -34,10 +35,10 @@ class Headline < ActiveRecord::Base
   			:cnn => "http://www.cnn.com/", :reuters => "http://www.reuters.com/", :chinadaily => "http://www.chinadaily.com.cn/china/", :bbc => "http://www.bbc.com/news/", :aljazeera => "http://www.aljazeera.com/"
   		},
   		:headlines => {
-  			:cnn => ".cnn_banner_standard h1, .cnn_banner_large h1", :reuters => ".topStory h2", :chinadaily => ".font28", :bbc => ".top-story-header", :aljazeera => "#ctl00_cphBody_ctl00_rptNews_ctl00_lnkTitle"
+  			:cnn => ".cnn_banner_standard h1 a, .cnn_banner_large h1 a", :reuters => ".topStory h2 a", :chinadaily => ".font28 a", :bbc => ".top-story-header a", :aljazeera => "#ctl00_cphBody_ctl00_rptNews_ctl00_lnkTitle"
   		}, 
   		:other_stories => {
-  			:cnn => ".cnn_bulletbin li", :reuters => "h2", :chinadaily => "#main2 li, .headline-box h2, :nth-child(3) .wid300 h3", :bbc => "#top-story li, #second-story h2, #second_story li, 
+  			:cnn => ".cnn_bulletbin li", :reuters => "h2:not(:first-child)", :chinadaily => "#main2 li, .headline-box h2, :nth-child(3) .wid300 h3", :bbc => "#top-story li, #second-story h2, #second_story li, 
 				.secondary-story-header, #third-story li, #other-top-stories h3", :aljazeera => ".indexText-Font2 h2, .h89-fix td div:first-child, .rightNewsArea, #ctl00_cphBody_ctl02_ctl01_DataList1_ctl00_Thumbnail1_Layout14 > div:nth-child(2), 
 				#ctl00_cphBody_ctl02_ctl01_DataList1_ctl01_Thumbnail1_Layout14 > div:nth-child(2), #ctl00_cphBody_ctl02_ctl01_DataList1_ctl02_Thumbnail1_Layout14 > div:nth-child(2), #ctl00_cphBody_ctl02_ctl01_DataList1_ctl03_Thumbnail1_Layout14 > div:nth-child(2), #ctl00_cphBody_ctl03_rptPosting_ctl01_Thumbnail1_Layout9 > div:nth-child(2), 
 				#ctl00_cphBody_ctl03_rptPosting_ctl02_Thumbnail1_Layout9 > div:nth-child(2), #ctl00_cphBody_ctl03_rptPosting_ctl03_Thumbnail1_Layout9 > div:nth-child(2), .skyscLines, .skyscBullet, #ctl00_cphBody_ctl05_ctl01_DataList1_ctl00_Thumbnail1_Layout14 div , #ctl00_ctl00_MostViewedArticles1_dvMVAlayout1 :nth-child(10)"
