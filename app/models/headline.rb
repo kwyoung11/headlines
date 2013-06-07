@@ -15,7 +15,7 @@ class Headline < ActiveRecord::Base
   	  text << doc.at_css(headline).text  # Appending individual headline to stories_arr[]
   	  doc.css(other_stories).each_with_index do |link, j|  # Iterate over other news agency stories with an index
   		  j >= limit ? break : j += 1	# Break iteration when @param limit is reached
-  		  text << "#{j}. " + link.at_css("a").text # Push link text, href attribute and base url onto stories
+  		  text << "#{j}. " + link.at_css("a").text unless link.at_css("a").nil? # Push link text, href attribute and base url onto stories
         href << link.at_css("a")[:href]
   	  end
       stories[agencies[i]] = {:text => text}

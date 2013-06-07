@@ -1,0 +1,144 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+#headlines {
+	border: 1px solid red;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#breaking {
+	color: red;
+	text-decoration: underline;
+}
+
+.agency {
+	color: red;
+}
+
+#banner {
+	border: 1px solid red;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#banner h1 {
+	font-family: Arial Black;
+	font-size: 28px;
+}
+
+#headlines_container {
+	border: 1px solid blue;
+	max-width: 1530px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.agency_container {
+	float: left;
+	display: block;
+	margin: 0px 10px 10px 0px;
+	background: #fff;
+	width: 400px;
+	color: white;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.agency_container a {
+	color: blue;
+	text-decoration: none;
+}
+
+.agency_container a:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+.agency_container a:visited {
+	color: blue;
+}
+
+.agency_banner {
+	border: 0px solid red;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#cnn, #bbc {
+	color: white;
+	background-color: red;
+}
+
+#aljazeera {
+	color: blue;
+	background-color: #eee;
+}
+
+#chinadaily {
+	color: white;
+	background-color: #2323dd;
+}
+
+#reuters {
+	color: white;
+	background-color: #444;
+}
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+div.field, div.actions {
+  margin-bottom: 10px; }
+
+#notice {
+  color: green; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+  #error_explanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff; }
+  #error_explanation ul li {
+    font-size: 12px;
+    list-style: square; }
