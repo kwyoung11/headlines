@@ -12,6 +12,8 @@ Europe, Asia and the Middle East.
 - Add the key for the news source in the agencies hash variable.
 - Test out your additions.
 
+A good reference: http://railscasts.com/episodes/190-screen-scraping-with-nokogiri
+
 ## Other potential features to implement:
 
 - Sortable by world region (e.g. America's, Europe, Africa, Asia, Oceania)
