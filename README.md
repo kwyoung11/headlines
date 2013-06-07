@@ -1,4 +1,4 @@
-== README
+### News-Headlines
 
 This app aggregates top news headlines from various news outlets, including outlets in the America's, 
 Europe, Asia and the Middle East.
