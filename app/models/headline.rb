@@ -2,21 +2,21 @@ class Headline < ActiveRecord::Base
 	require 'nokogiri'
 	require 'open-uri'
 
-	# Retrieves headlines and other news stories from the news agency specified by @param agency.
-	# @param agency. An array of varying news agencies to feed the web scraper
-	# @param limit. The limit on the number of stories.
-	# @param scraper_options. A nested hash containing the urls, headlines and stories for the news agency.
-	# @return an array with the headline and @limit number of stories
+	# 'Scrape' the text of tags specified by css selectors using Nokogiri
+	# @param agencies. Array of all news agencies from which to scrape link text.
+	# @param limit. The limit on the number of stories displayed.
+	# @param scraper_options. A nested hash containing the hostname URI's, as well as headline and story css selectors for each agency.
+	# @return stories. A hash with three keys (:text, :href, and :uri) with @limit number of stories.
 	def self.scrape(agencies = [:cnn], limit = 25, scraper_options)
     stories = {}
     agencies.size.times do |i| 
 		  url, headline, other_stories = scraper_options[:base_urls][agencies[i]], scraper_options[:headlines][agencies[i]], scraper_options[:other_stories][agencies[i]]
       text, href, doc = [], [], Nokogiri::HTML(open(url))
-  	  text << doc.at_css(headline).text  unless doc.at_css(headline).nil? # Appending top headline
-      href << doc.at_css(headline)[:href] unless doc.at_css(headline).nil? # Append href attribute of top headline
-  	  doc.css(other_stories).each_with_index do |link, j|  # Iterate over other news agency stories with an index
-  		  j >= limit ? break : j += 1	# Break iteration when @param limit is reached
-  		  text << link.at_css("a").text unless link.at_css("a").nil? # Push link text, href attribute and base url onto stories
+  	  text << doc.at_css(headline).text  unless doc.at_css(headline).nil? 
+      href << doc.at_css(headline)[:href] unless doc.at_css(headline).nil?  
+  	  doc.css(other_stories).each_with_index do |link, j| 
+  		  j >= limit ? break : j += 1	
+  		  text << link.at_css("a").text unless link.at_css("a").nil? 
         href << link.at_css("a")[:href] unless link.at_css("a").nil?
   	  end
       stories[agencies[i]] = {:text => text}
@@ -26,9 +26,9 @@ class Headline < ActiveRecord::Base
   	return stories
   end
 
-  # Defines 'settings' for base url's and the css selectors for scraping the headlines and other news stories for six different news agencies.
-  # @return scraper_options, which can be called as such: scraper_options[setting][agency]
-  # @agencies = :cnn, :reuters, :china_daily, :bbc, :aljazeera
+  # Specifies hostname URI's and CSS selectors for headlines and other stories for each news agency.
+  # These settings are crucial to allow Headline::scrape to select the correct link text from each news source.
+  # @return scraper_options. A hash, which can be called as such: scraper_options[setting][agency].
   def self.scraper_options
   	scraper_options = {
   		:base_urls => {
@@ -44,6 +44,11 @@ class Headline < ActiveRecord::Base
 				#ctl00_cphBody_ctl03_rptPosting_ctl02_Thumbnail1_Layout9 > div:nth-child(2), #ctl00_cphBody_ctl03_rptPosting_ctl03_Thumbnail1_Layout9 > div:nth-child(2), .skyscLines, .skyscBullet, #ctl00_cphBody_ctl05_ctl01_DataList1_ctl00_Thumbnail1_Layout14 div , #ctl00_ctl00_MostViewedArticles1_dvMVAlayout1 :nth-child(10)"
 			}
   	}
+  end
+
+  # Specifies each agency from which to scrape headline stories
+  def self.agencies
+    return [:cnn, :reuters, :aljazeera, :bbc, :chinadaily]
   end
 
 end
