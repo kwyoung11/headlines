@@ -4,8 +4,13 @@ ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.rc1'
 
-group :development do
+group :development, :test do
 	gem 'sqlite3'
+	gem 'cucumber-rails', :git => "https://github.com/cucumber/cucumber-rails.git", :branch => "master_rails4_test"
+  gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions  
+  gem 'database_cleaner' # to clear Cucumber's test database between runs
+  gem 'capybara'         # lets Cucumber pretends to be a web browser
+  gem 'launchy'          # a useful debugging aid for user stories
 end
 
 group :production do
